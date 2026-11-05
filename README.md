@@ -1,21 +1,29 @@
 # 你有禮貌嗎？
 
-一段從家中餐桌，走到公寓門口、公車站與街角小店的互動故事。故事不計分、不公布「正確答案」；玩家遇見事件、做出選擇，看見當下的回聲，再一路走到不同的結尾與討論線索。
+一段從家裡餐桌走到公寓門口、公車站與街角小店的互動故事。每個事件都可以停下來想一想、選一條路，看見選擇帶來的回聲；沒有分數，也不判定誰比較有禮貌。
 
-## 互動設計
+## 開啟方式
 
-- 以連續全景插畫與鏡頭平移串連四個場景；推進靠選擇與場景切換，不靠長頁面向下拖動。
-- 每幕以事件卡呈現情境、討論提示、三個選擇及選後回聲；可回看上一幕並改變選擇。
-- 結尾由玩家選擇的傾向生成三種可能：替彼此留空間、讓自己的聲音被聽見、一起商量規則。它們不是分數或好壞排名。
-- 最後展示禮儀文件、社會習慣、公共空間設計與生活課程的資料，並提供可帶去家裡或教室的討論問題。
-- 語氣刻意保持日常、留白與好奇；課綱線索只作設計背景，並不將故事做成教材或測驗。
+這是純 HTML、CSS、JavaScript 靜態網站，不需安裝相依套件。在專案根目錄執行：
 
-## 資料與授權
+```powershell
+python -m http.server 4173
+```
 
-故事涉及的禮儀、公共空間與生活課程資料，請由結尾「故事背後的線索」查看原始出處。外部文件、論文、研究及其標誌仍依各自權利人授權，不隨本專案一併授權。
+再開啟 `http://localhost:4173/`。全景插畫位於 `assets/story-panorama.png`。
 
-本專案原創的故事文字、前端程式與全景插畫採用 **Creative Commons Attribution-ShareAlike 4.0 International（CC BY-SA 4.0）**。再利用時請依條款標示來源，衍生作品以相同授權釋出。詳見 [`LICENSE`](LICENSE) 或 [官方授權頁](https://creativecommons.org/licenses/by-sa/4.0/legalcode.en)。
+## 故事裡的線索
 
-## 執行
+故事中的家居生活與公共場所情境，呼應國小一、二年級生活課程的生活經驗與互動範圍；呈現方式以體驗、探索和討論為主，不做成教材或測驗。結尾提供原始資料，作為延伸閱讀與反思起點：
 
-本頁為純靜態 HTML/CSS/JavaScript。以任一靜態伺服器提供 `dist/` 目錄即可預覽；插畫位於 `dist/assets/story-panorama.png`。
+- [行政院人事行政總處：如何提升公務電話禮貌](https://www.dgpa.gov.tw/Uploads/public/Attachment/57111535143.pdf)
+- [外交部：有禮走天下——國際禮儀手冊](https://multilingual.mofa.gov.tw/web/web_UTF-8/etiquette_201804/%E5%9C%8B%E9%9A%9B%E7%A6%AE%E5%84%80%E6%89%8B%E5%86%8A.pdf)
+- [內政部：會議規範](https://ws.moi.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvT2xkRmlsZS9jaXZpbF9sYXdfZmlsZS%2FmnIPorbDopo%2Fnr4QucGRm&n=5pyD6K2w6KaP56%2BELnBkZg%3D%3D)
+- [王志弘：秩序、效率與文明素養——台北市「排隊運動」分析](https://bp.ntu.edu.tw/001/Upload/1352/ckfile/b22fad7e-c91f-4e0c-8940-e7b8a5d2a19d.pdf)
+- [George A. Akerlof：A Theory of Social Custom, of Which Unemployment May Be One Consequence](https://ideas.repec.org/a/oup/qjecon/v94y1980i4p749-775..html)
+- [交通部運輸研究所：捷運月台旅客交織行為模式之研究](https://www.iot.gov.tw/zh_tw/archive/dissertation/dlist/-6317318)
+- [國家教育研究院：國民小學生活課程課程綱要](https://www.naer.edu.tw/upload/1/16/doc/813/(%E7%99%BC%E5%B8%83%E7%89%88)%E7%94%9F%E6%B4%BB%E8%AA%B2%E7%A8%8B%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81.pdf)
+
+## 授權
+
+本專案原創的故事文字、前端程式與全景插畫採用 **CC BY-SA 4.0**。再利用請依授權條款標示來源，衍生作品以相同授權釋出；外部文件、研究與論文仍依各自權利人授權。詳見 [`LICENSE`](LICENSE) 與[官方授權條款](https://creativecommons.org/licenses/by-sa/4.0/legalcode.en)。
