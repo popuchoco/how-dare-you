@@ -26,4 +26,4 @@ python -m http.server 4173
 
 ## 授權
 
-本專案原創的故事文字、前端程式與全景插畫採用 **CC BY-SA 4.0**。再利用請依授權條款標示來源，衍生作品以相同授權釋出；外部文件、研究與論文仍依各自權利人授權。詳見 [`LICENSE`](LICENSE) 與[官方授權條款](https://creativecommons.org/licenses/by-sa/4.0/legalcode.en)。
+本專案原創的故事文字、前端程式與全景插畫採用 **CC BY-SA 4.0**。建議署名「popuchoco／你有禮貌嗎？」並附上本專案連結；如有改作，請註明修改並以相同授權釋出。外部文件、研究與論文仍依各自權利人授權。詳見 [`LICENSE`](LICENSE) 與[官方授權條款](https://creativecommons.org/licenses/by-sa/4.0/legalcode.en)。
