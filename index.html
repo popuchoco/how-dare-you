@@ -31,9 +31,9 @@
       <div class="intro-copy">
         <p class="eyebrow"><span class="eyebrow-dot"></span>一段可以一起走完的日常</p>
         <h1 id="introTitle">你有<br><em>禮貌嗎？</em></h1>
-        <p class="intro-lede">今天回家的路上，會遇見幾個小小的瞬間。<br>沒有標準答案，只有你想怎麼和人一起生活。</p>
+        <p class="intro-lede">從家門到辦公室、餐桌與車站，禮貌藏在每一次停頓裡。<br>有些時刻有明確共識，有些要看現場、問問彼此。</p>
         <button class="primary-button" id="startButton" type="button">走進故事 <span aria-hidden="true">→</span></button>
-        <p class="intro-note"><span aria-hidden="true">✦</span> 約 4 分鐘・4 個場景・你的選擇會留下痕跡</p>
+        <p class="intro-note"><span aria-hidden="true">✦</span> 約 6 分鐘・6 個日常瞬間・沒有禮貌分數</p>
       </div>
       <div class="intro-side-note" aria-hidden="true"><span>傍晚 17:42</span><i></i><span>雨剛停</span></div>
       <div class="intro-bottom" aria-hidden="true"><span>從一張餐桌出發</span><span class="line"></span><span>走到街角再回來</span></div>
@@ -41,7 +41,7 @@
 
     <section class="screen story-screen" id="storyScreen" aria-label="故事場景" hidden>
       <div class="story-meta">
-        <div class="scene-counter"><span id="sceneNumber">01</span><span class="counter-slash">/</span><span>04</span></div>
+        <div class="scene-counter"><span id="sceneNumber">01</span><span class="counter-slash">/</span><span id="sceneTotal">06</span></div>
         <div class="scene-meta-copy"><span id="scenePlace">家裡・晚餐前</span><span class="meta-divider">·</span><span id="sceneTime">17:42</span></div>
         <div class="journey-track" aria-label="旅程進度"><span class="journey-fill" id="journeyFill"></span></div>
       </div>
@@ -49,9 +49,10 @@
       <div class="people-cue" id="peopleCue" aria-hidden="true"><span class="cue-dot"></span><span id="cueText">餐桌邊，有人等著把話說完</span></div>
 
       <article class="event-card" id="eventCard" aria-live="polite" aria-labelledby="eventTitle">
-        <div class="card-topline"><span class="event-tag"><span class="tag-icon" aria-hidden="true">✦</span><span id="eventTag">一個小瞬間</span></span><span class="event-step" id="eventStep">1 / 4</span></div>
+        <div class="card-topline"><span class="event-tag"><span class="tag-icon" aria-hidden="true">✦</span><span id="eventTag">一個小瞬間</span></span><button class="perspective-button" id="mbtiOpen" type="button"><span aria-hidden="true">◉</span> MBTI視角 <span class="perspective-arrow" aria-hidden="true">↗</span></button><span class="event-step" id="eventStep">1 / 6</span></div>
         <h2 id="eventTitle"></h2>
         <p class="event-body" id="eventBody"></p>
+        <div class="consensus-note" id="consensusNote"><span class="consensus-mark" aria-hidden="true">◎</span><p><b id="consensusLabel"></b><span id="consensusText"></span></p></div>
         <div class="reflection-prompt"><span class="prompt-icon" aria-hidden="true">?</span><p id="eventPrompt"></p></div>
         <div class="choice-list" id="choiceList" role="group" aria-label="選擇你會怎麼做"></div>
         <div class="echo-panel" id="echoPanel" hidden aria-live="polite">
@@ -79,7 +80,7 @@
           <button class="primary-button" id="sourcesButton" type="button">打開故事背後的線索 <span aria-hidden="true">→</span></button>
           <button class="text-button" id="endingReplay" type="button">再走一次，換個選擇 <span aria-hidden="true">↺</span></button>
         </div>
-        <p class="ending-question">如果禮貌不是規定，而是一種彼此商量的空間呢？</p>
+        <p class="ending-question">每個人都能很有禮貌；但我們對「當下最合宜」的理解，可能不同。</p>
       </div>
     </section>
 
@@ -91,9 +92,10 @@
         </div>
         <div class="discussion-strip"><span class="discussion-mark" aria-hidden="true">聊</span><div><b>把故事帶去聊一聊</b><p>在家裡、教室或回家的路上，挑一題交換想法——不用找出唯一正確的答案。</p></div></div>
         <div class="question-pills" aria-label="討論問題">
-          <p>當一個規矩讓某些人更不方便，我們可以怎麼一起改？</p>
-          <p>有禮貌，是否也包括清楚說出自己的需要？</p>
-          <p>有時候擁擠不是誰不夠禮貌，還可能是什麼原因？</p>
+          <p>哪一幕有明確共識？哪一幕要先看標示或問問彼此？</p>
+          <p>不同性格、動機不同，能不能都做出有禮貌的選擇？</p>
+          <p>「右立左行」遇上安全提醒時，你會依據什麼決定？</p>
+          <p>圓桌入席，怎麼同時顧到主人安排、同行者需要和出入動線？</p>
         </div>
         <div class="source-tabs" id="sourceTabs" role="tablist" aria-label="故事資料分類"></div>
         <section class="source-panel" id="sourcePanel" role="tabpanel" aria-live="polite"></section>
@@ -103,6 +105,15 @@
         </footer>
       </div>
     </section>
+
+    <dialog class="mbti-dialog" id="mbtiDialog" aria-labelledby="mbtiTitle">
+      <div class="mbti-dialog-head"><div><p class="mbti-kicker">換一副眼鏡，不替人貼標籤</p><h2 id="mbtiTitle">同一種禮貌，<br>可能有不同的動機。</h2></div><button class="dialog-close" id="mbtiClose" type="button" aria-label="關閉性格視角">×</button></div>
+      <p class="mbti-intro">MBTI 用四組偏好描述人們比較常先注意什麼。這些是「可能的第一眼」，不是人格劇本；每種組合都能選擇體貼的做法。</p>
+      <div class="mbti-tabs" id="mbtiTabs" role="tablist" aria-label="MBTI 四組偏好"></div>
+      <section class="mbti-axis-panel" id="mbtiAxisPanel" role="tabpanel" aria-live="polite"></section>
+      <p class="mbti-footnote">四組偏好可以組成 16 種類型，但類型不能替你決定行為或判斷禮貌高低。這不是測驗，也不替孩子或任何人分類；低年級可以只聊「不同的人先注意到什麼」。</p>
+      <button class="dialog-return" id="mbtiReturn" type="button">回到這一幕 <span aria-hidden="true">→</span></button>
+    </dialog>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </main>
