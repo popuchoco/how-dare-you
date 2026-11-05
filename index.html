@@ -4,11 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#193a4a">
-  <meta name="description" content="走進一段從家門到街角的日常旅程。遇見不同的人、停下來想一想：你有禮貌嗎？">
+  <meta name="description" content="從餐桌、捷運到街角，走進六個日常情境。做出選擇，看見不同回聲；不計分、不說教，一起想想禮貌如何讓彼此自在。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="你有禮貌嗎？｜把一點空間留給彼此">
+  <meta property="og:description" content="從餐桌、捷運到街角，走進六個日常情境。做出選擇，看見不同回聲；不計分、不說教，一起想想禮貌如何讓彼此自在。">
+  <meta property="og:url" content="https://little-room-manners.duskylark33.chatgpt.site/">
+  <meta property="og:image" content="https://little-room-manners.duskylark33.chatgpt.site/assets/story-panorama.png">
   <title>你有禮貌嗎？｜把一點空間留給彼此</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -34,6 +36,7 @@
         <p class="intro-lede">從家門到辦公室、餐桌與車站，禮貌藏在每一次停頓裡。<br>有些時刻有明確共識，有些要看現場、問問彼此。</p>
         <button class="primary-button" id="startButton" type="button">走進故事 <span aria-hidden="true">→</span></button>
         <p class="intro-note"><span aria-hidden="true">✦</span> 約 6 分鐘・6 個日常瞬間・沒有禮貌分數</p>
+        <p class="intro-privacy-note">旅程進度只保存在此瀏覽器，不會上傳。</p>
       </div>
       <div class="intro-side-note" aria-hidden="true"><span>傍晚 17:42</span><i></i><span>雨剛停</span></div>
       <div class="intro-bottom" aria-hidden="true"><span>從一張餐桌出發</span><span class="line"></span><span>走到街角再回來</span></div>
@@ -50,7 +53,7 @@
 
       <article class="event-card" id="eventCard" aria-live="polite" aria-labelledby="eventTitle">
         <div class="card-topline"><span class="event-tag"><span class="tag-icon" aria-hidden="true">✦</span><span id="eventTag">一個小瞬間</span></span><button class="perspective-button" id="mbtiOpen" type="button"><span aria-hidden="true">◉</span> MBTI視角 <span class="perspective-arrow" aria-hidden="true">↗</span></button><span class="event-step" id="eventStep">1 / 6</span></div>
-        <h2 id="eventTitle"></h2>
+        <h2 id="eventTitle" tabindex="-1"></h2>
         <p class="event-body" id="eventBody"></p>
         <div class="consensus-note" id="consensusNote"><span class="consensus-mark" aria-hidden="true">◎</span><p><b id="consensusLabel"></b><span id="consensusText"></span></p></div>
         <div class="reflection-prompt"><span class="prompt-icon" aria-hidden="true">?</span><p id="eventPrompt"></p></div>
@@ -73,7 +76,7 @@
       <div class="ending-shell">
         <div class="ending-kicker"><span class="ending-sparkle">✦</span><span>故事走到街角，還沒有結束</span></div>
         <p class="ending-overline">你留下的一種可能</p>
-        <h2 id="endingTitle"></h2>
+        <h2 id="endingTitle" tabindex="-1"></h2>
         <p class="ending-copy" id="endingCopy"></p>
         <div class="ending-memory" id="endingMemory"></div>
         <div class="ending-actions">
@@ -87,7 +90,7 @@
     <section class="screen sources-screen" id="sourcesScreen" aria-labelledby="sourcesTitle" hidden>
       <div class="sources-shell">
         <div class="sources-heading">
-          <div><p class="sources-overline">故事之後 · 留下幾個問題</p><h2 id="sourcesTitle">禮貌，是一種<br><em>一起生活的設計</em></h2></div>
+          <div><p class="sources-overline">故事之後 · 留下幾個問題</p><h2 id="sourcesTitle" tabindex="-1">禮貌，是一種<br><em>一起生活的設計</em></h2></div>
           <p class="sources-intro">這趟旅程借來一些真實世界的線索。它們不是要替你定答案，而是邀請我們再多看一眼：誰被照顧到了？誰的聲音還沒被聽見？</p>
         </div>
         <div class="discussion-strip"><span class="discussion-mark" aria-hidden="true">聊</span><div><b>把故事帶去聊一聊</b><p>在家裡、教室或回家的路上，挑一題交換想法——不用找出唯一正確的答案。</p></div></div>
@@ -98,7 +101,7 @@
           <p>圓桌入席，怎麼同時顧到主人安排、同行者需要和出入動線？</p>
         </div>
         <div class="source-tabs" id="sourceTabs" role="tablist" aria-label="故事資料分類"></div>
-        <section class="source-panel" id="sourcePanel" role="tabpanel" aria-live="polite"></section>
+        <section class="source-panel" id="sourcePanel" role="tabpanel" tabindex="0" aria-live="polite"></section>
         <footer class="source-footer">
           <p>原創故事文字、程式與插畫採 <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC BY-SA 4.0</a>（<a href="LICENSE" target="_blank">完整授權</a>）。外部研究與文件仍依各自授權。</p>
           <div><button class="text-button" id="sourcesReplay" type="button">再走一次 <span aria-hidden="true">↺</span></button><a href="https://github.com/popuchoco/how-dare-you" target="_blank" rel="noreferrer">開啟專案 ↗</a></div>

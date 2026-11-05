@@ -1,5 +1,7 @@
 # 你有禮貌嗎？
 
+**成品網站：** [https://little-room-manners.duskylark33.chatgpt.site](https://little-room-manners.duskylark33.chatgpt.site)
+
 一段從家裡餐桌走到月台、車站扶梯、洽公櫃台、圓桌餐敘與街角小店的互動故事。六個生活瞬間，六次停下來思考：有些情境有較明確的共識，有些要依現場指示或問問彼此。每個選擇都有回聲，沒有禮貌分數或人格排名。
 
 ## 開啟方式
@@ -32,6 +34,10 @@ python -m http.server 4173
 - [The Myers-Briggs Company：MBTI Facts](https://www.themyersbriggs.com/en-US/Support/MBTI-Facts)
 - [Myers & Briggs Foundation：MBTI Code of Ethics](https://www.myersbriggs.org/using-type-as-a-professional/mbti-code-of-ethics/)
 
+進度只儲存在使用者自己的瀏覽器，不會上傳；「重新開始」會清除這份本機進度。
+
 ## 授權
 
 本專案原創的故事文字、前端程式與全景插畫採用 **CC BY-SA 4.0**。建議署名「popuchoco／你有禮貌嗎？」並附上本專案連結；如有改作，請註明修改並以相同授權釋出。外部文件、研究與論文仍依各自權利人授權。詳見 [`LICENSE`](LICENSE) 與[官方授權條款](https://creativecommons.org/licenses/by-sa/4.0/legalcode.en)。
+
+網站使用原生 HTML、CSS 與 JavaScript；不依賴前端框架、建置工具或外部字型服務。進度僅存於本機瀏覽器。

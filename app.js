@@ -161,8 +161,64 @@
   let choices = new Array(scenes.length).fill(null);
   let activeSourceIndex = 0;
   let activeMbtiAxis = 0;
+  let screenName = "intro";
+  let hasStarted = false;
+  const progressKey = "you-have-manners-progress-v1";
+
+  function readProgress() {
+    try {
+      const raw = localStorage.getItem(progressKey);
+      if (!raw) return null;
+      const progress = JSON.parse(raw);
+      const validScreens = ["story", "ending", "sources"];
+      const validChoices = Array.isArray(progress?.choices) && progress.choices.length === scenes.length
+        && progress.choices.every((choice, index) => choice === null
+          || (Number.isInteger(choice) && Boolean(scenes[index].choices[choice])));
+      if (progress?.version !== 1 || !validScreens.includes(progress.screen)
+        || !Number.isInteger(progress.sceneIndex) || progress.sceneIndex < 0 || progress.sceneIndex >= scenes.length
+        || !validChoices) return null;
+      return {
+        screen: progress.screen,
+        sceneIndex: progress.sceneIndex,
+        choices: progress.choices,
+        activeSourceIndex: Number.isInteger(progress.activeSourceIndex)
+          && progress.activeSourceIndex >= 0 && progress.activeSourceIndex < sourceGroups.length
+          ? progress.activeSourceIndex : 0,
+      };
+    } catch {
+      return null;
+    }
+  }
+
+  function persistProgress() {
+    try {
+      if (!hasStarted || screenName === "intro") {
+        localStorage.removeItem(progressKey);
+        return;
+      }
+      localStorage.setItem(progressKey, JSON.stringify({
+        version: 1,
+        screen: screenName,
+        sceneIndex,
+        choices,
+        activeSourceIndex,
+      }));
+    } catch {
+      // Progress is a convenience; the story remains playable if storage is unavailable.
+    }
+  }
+
+  const savedProgress = readProgress();
+  if (savedProgress) {
+    sceneIndex = savedProgress.sceneIndex;
+    choices = savedProgress.choices;
+    activeSourceIndex = savedProgress.activeSourceIndex;
+    screenName = savedProgress.screen;
+    hasStarted = true;
+  }
 
   function setScreen(name) {
+    screenName = name;
     Object.entries(screens).forEach(([key, node]) => {
       const active = key === name;
       node.hidden = !active;
@@ -172,6 +228,7 @@
     $("restartTop").hidden = name === "intro";
     const labels = { intro: "一段日常・一個選擇", story: "沿著日常，慢慢往前", ending: "故事的其中一種結尾", sources: "故事之外・一起想想" };
     $("chapterLabel").textContent = labels[name];
+    persistProgress();
   }
 
   function setPanorama(index) {
@@ -240,6 +297,7 @@
       change.addEventListener("click", () => {
         choices[sceneIndex] = null;
         renderScene();
+        persistProgress();
         $(`choiceList`).querySelector("button")?.focus({ preventScroll: true });
       });
       list.append(change);
@@ -259,11 +317,13 @@
     sceneIndex = Math.max(0, Math.min(scenes.length - 1, index));
     renderScene();
     setScreen("story");
+    $("eventTitle").focus({ preventScroll: true });
   }
 
   function selectChoice(index) {
     choices[sceneIndex] = index;
     renderScene();
+    persistProgress();
     const next = $("continueButton");
     next.focus({ preventScroll: true });
   }
@@ -291,6 +351,7 @@
       : "每條路都只是一種可能。換個選擇，故事也會長出新的樣子。";
     $("endingMemory").textContent = `${ending.memory} ${memoryText}`;
     setScreen("ending");
+    $("endingTitle").focus({ preventScroll: true });
   }
 
   function continueStory() {
@@ -334,12 +395,14 @@
       tab.tabIndex = i === index ? 0 : -1;
     });
     renderSourceGroup();
+    persistProgress();
   }
 
   function renderSourceGroup() {
     const group = sourceGroups[activeSourceIndex];
     const panel = $("sourcePanel");
     panel.innerHTML = "";
+    panel.scrollTop = 0;
     panel.setAttribute("aria-labelledby", `sourceTab${activeSourceIndex}`);
     const section = document.createElement("div");
     section.className = "source-group";
@@ -437,15 +500,19 @@
   function restart() {
     choices = new Array(scenes.length).fill(null);
     sceneIndex = 0;
+    hasStarted = false;
     setPanorama(0);
     setScreen("intro");
     $("startButton").focus({ preventScroll: true });
   }
 
-  $("startButton").addEventListener("click", () => { goToScene(0); $("eventTitle").focus?.({ preventScroll: true }); });
+  $("startButton").addEventListener("click", () => { hasStarted = true; goToScene(0); });
   $("continueButton").addEventListener("click", continueStory);
   $("backButton").addEventListener("click", () => { if (sceneIndex > 0) goToScene(sceneIndex - 1); });
-  $("sourcesButton").addEventListener("click", () => setScreen("sources"));
+  $("sourcesButton").addEventListener("click", () => {
+    setScreen("sources");
+    $("sourcesTitle").focus({ preventScroll: true });
+  });
   $("endingReplay").addEventListener("click", restart);
   $("sourcesReplay").addEventListener("click", restart);
   $("restartTop").addEventListener("click", restart);
@@ -458,6 +525,17 @@
   $("mbtiReturn").addEventListener("click", () => $("mbtiDialog").close());
   buildSources();
   buildMbtiTabs();
-  setScreen("intro");
-  setPanorama(0);
+  if (!savedProgress) {
+    setScreen("intro");
+    setPanorama(0);
+  } else {
+    renderScene();
+    setPanorama(sceneIndex);
+    if (screenName === "ending") showEnding();
+    else {
+      setScreen(screenName);
+      if (screenName === "story") $("eventTitle").focus({ preventScroll: true });
+      else $("sourcesTitle").focus({ preventScroll: true });
+    }
+  }
 })();
