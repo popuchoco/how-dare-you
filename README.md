@@ -2,17 +2,17 @@
 
 **成品網站：** [https://little-room-manners.duskylark33.chatgpt.site](https://little-room-manners.duskylark33.chatgpt.site)
 
-一段從家裡餐桌走到月台、車站扶梯、洽公櫃台、圓桌餐敘與街角小店的互動故事。六個生活瞬間，六次停下來思考：有些情境有較明確的共識，有些要依現場指示或問問彼此。每個選擇都有回聲，沒有禮貌分數或人格排名。
+一段由你陪著阿嬤度過的傍晚：從家裡餐桌出發，經過月台、車站扶梯、洽公櫃台、圓桌餐敘與街角小店，最後一起走回家。六個生活瞬間，六次停下來思考：有些情境有較明確的共識，有些要依現場指示或問問彼此。每個選擇都有回聲，沒有禮貌分數或人格排名。
 
 ## 開啟方式
 
 這是純 HTML、CSS、JavaScript 靜態網站，不需安裝相依套件。在專案根目錄執行：
 
-```powershell
-python -m http.server 4173
+```sh
+python3 -m http.server 4173
 ```
 
-再開啟 `http://localhost:4173/`。全景插畫位於 `assets/story-panorama.png`。
+再開啟 `http://localhost:4173/`。全景插畫位於 `assets/story-panorama.png`。也可執行 `node artifacts/smoke-story.mjs` 檢查六幕回聲、結尾記憶與本機進度格式。
 
 ## 故事裡的線索
 
@@ -34,7 +34,7 @@ python -m http.server 4173
 - [The Myers-Briggs Company：MBTI Facts](https://www.themyersbriggs.com/en-US/Support/MBTI-Facts)
 - [Myers & Briggs Foundation：MBTI Code of Ethics](https://www.myersbriggs.org/using-type-as-a-professional/mbti-code-of-ethics/)
 
-進度只儲存在使用者自己的瀏覽器，不會上傳；「重新開始」會清除這份本機進度。
+進度只儲存在使用者自己的瀏覽器，不會上傳；「重新開始」會清除這份本機進度。提示音以瀏覽器 Web Audio API 本機合成，預設關閉；偏好另外儲存在本機，不會呼叫外部音訊服務。
 
 ## 授權
 

@@ -25,6 +25,7 @@
       </a>
       <div class="topbar-right">
         <span class="chapter-label" id="chapterLabel">一段日常・一個選擇</span>
+        <button class="quiet-button audio-toggle" id="audioToggle" type="button" aria-pressed="false">提示音：關</button>
         <button class="quiet-button" id="restartTop" type="button" hidden>重新開始 <span aria-hidden="true">↺</span></button>
       </div>
     </header>
@@ -33,12 +34,12 @@
       <div class="intro-copy">
         <p class="eyebrow"><span class="eyebrow-dot"></span>一段可以一起走完的日常</p>
         <h1 id="introTitle">你有<br><em>禮貌嗎？</em></h1>
-        <p class="intro-lede">從家門到辦公室、餐桌與車站，禮貌藏在每一次停頓裡。<br>有些時刻有明確共識，有些要看現場、問問彼此。</p>
+        <p class="intro-lede">一個傍晚，你陪阿嬤從餐桌出發，去月台、櫃台和街角。<br>有些時刻有明確共識，有些要看現場、問問彼此。</p>
         <button class="primary-button" id="startButton" type="button">走進故事 <span aria-hidden="true">→</span></button>
         <p class="intro-note"><span aria-hidden="true">✦</span> 約 6 分鐘・6 個日常瞬間・沒有禮貌分數</p>
         <p class="intro-privacy-note">旅程進度只保存在此瀏覽器，不會上傳。</p>
       </div>
-      <div class="intro-side-note" aria-hidden="true"><span>傍晚 17:42</span><i></i><span>雨剛停</span></div>
+      <div class="intro-side-note" aria-hidden="true"><span>傍晚 17:42</span><i></i><span>細雨未歇</span></div>
       <div class="intro-bottom" aria-hidden="true"><span>從一張餐桌出發</span><span class="line"></span><span>走到街角再回來</span></div>
     </section>
 
@@ -74,7 +75,7 @@
 
     <section class="screen ending-screen" id="endingScreen" aria-labelledby="endingTitle" hidden>
       <div class="ending-shell">
-        <div class="ending-kicker"><span class="ending-sparkle">✦</span><span>故事走到街角，還沒有結束</span></div>
+        <div class="ending-kicker"><span class="ending-sparkle">✦</span><span>把這一晚的幾個畫面帶回家</span></div>
         <p class="ending-overline">你留下的一種可能</p>
         <h2 id="endingTitle" tabindex="-1"></h2>
         <p class="ending-copy" id="endingCopy"></p>
@@ -120,6 +121,7 @@
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </main>
+  <script src="story-data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
