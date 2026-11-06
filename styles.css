@@ -38,6 +38,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid #f2bf5f; outline-offs
 .chapter-label { color: rgba(255,255,255,.78); font-size: 11px; letter-spacing: .12em; }
 .quiet-button { min-height: 40px; padding: 0 12px; border: 1px solid rgba(255,255,255,.42); border-radius: 99px; background: rgba(14,40,50,.2); color: white; cursor: pointer; font-size: 12px; }
 .quiet-button:hover { background: rgba(255,255,255,.16); }
+.audio-toggle { min-width: 96px; white-space: nowrap; }
 .screen { position: absolute; inset: 0; }
 .screen[hidden] { display: none !important; }
 .intro-screen { display: grid; align-items: center; padding: 92px clamp(24px, 12vw, 180px) 92px; animation: screen-in .72s both; }
@@ -127,7 +128,7 @@ h1, h2, p { margin-top: 0; }
 .ending-overline { margin: 27px 0 8px; color: #4a8b86; font-size: 11px; letter-spacing: .15em; }
 .ending-shell h2 { margin: 0 0 15px; color: #1d3d48; font-size: clamp(31px, 4.5vw, 52px); line-height: 1.3; letter-spacing: -.055em; }
 .ending-copy { max-width: 550px; margin: 0; color: #4d6266; font-size: 14px; line-height: 2; }
-.ending-memory { margin: 22px 0; padding: 14px 16px; border-left: 3px solid #e2b861; background: #f4ecd9; color: #5d6054; font-size: 12px; line-height: 1.8; }
+.ending-memory { margin: 22px 0; padding: 14px 16px; border-left: 3px solid #e2b861; background: #f4ecd9; color: #5d6054; font-size: 12px; line-height: 1.8; white-space: pre-line; }
 .ending-actions { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; margin-top: 23px; }
 .ending-actions .primary-button { min-height: 49px; font-size: 12px; }
 .text-button { min-height: 43px; padding: 6px 4px; color: #4a7d7b; font-size: 12px; text-decoration: none; }
@@ -198,7 +199,10 @@ h1, h2, p { margin-top: 0; }
 @media (min-width: 1500px) { .event-card { left: 11vw; width: min(570px, 40vw); } .people-cue { left: 12vw; } }
 @media (max-width: 800px) {
   .topbar { height: 70px; padding: 15px 21px; }
+  .topbar-right { gap: 7px; }
   .chapter-label { display: none; }
+  .quiet-button { min-height: 35px; padding: 0 9px; font-size: 10px; }
+  .audio-toggle { min-width: 82px; }
   .intro-screen { padding: 82px 9vw 84px; }
   .intro-copy h1 { font-size: clamp(62px, 15vw, 104px); }
   .intro-side-note { top: 20%; right: 8%; }
@@ -231,6 +235,14 @@ h1, h2, p { margin-top: 0; }
 }
 @media (max-width: 480px) {
   .app { min-height: 520px; }
+  .topbar { padding-right: 12px; padding-left: 12px; }
+  .brand { gap: 7px; }
+  .brand-mark { width: 32px; height: 32px; }
+  .brand b { font-size: 11px; }
+  .brand small { font-size: 9px; }
+  .topbar-right { gap: 5px; }
+  .quiet-button { min-height: 33px; padding: 0 7px; font-size: 9px; }
+  .audio-toggle { min-width: 73px; }
   .world { background-size: auto 100%; }
   .intro-screen { padding-left: 25px; padding-right: 25px; }
   .intro-copy h1 { font-size: 68px; }
